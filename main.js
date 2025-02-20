@@ -30,8 +30,10 @@ const getChefBirthday = async (id) => {
         const user = await fetchJson(`https://dummyjson.com/users/${userId}`)
         console.log(user);
 
+        const formattedDate = dayjs(user.birthDate).format(`DD/MM/YYYY`)
 
-        return user.birthDate
+        return formattedDate
+
     } catch (error) {
         console.error('Errore nella funzione getChefBirthday;', error)
         throw error
